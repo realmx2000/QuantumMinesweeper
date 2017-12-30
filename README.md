@@ -1,4 +1,4 @@
-# QuantumMinesweeper
+# Quantum Minesweeper, a game to make quantum mechanics fun
 Quantum Minesweeper is a variant on the classical minesweeper game which uses probabalistic measurements on a board state which is in superposition. To start, the user specifies the board size, number of boards, and number of mines. The computer creates that number of boards of that size, and randomly scatters the appropriate number of mines across each board. It then puts all the boards into a superposition state.
 
 The user has 3 measurements with which to determine the mine locations: a collapsing measurement, an interaction free measurement, and a linear entropy measurement. First, we define the "probability of a mine being present", which for any given tile is simply the number of mines on that tile divided by the number of boards in the superposition. For example, if there were 4 boards in superposition and three of them had mines on a certain tile, the probability of a mine being present would be 0.75.
