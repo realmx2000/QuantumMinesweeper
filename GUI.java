@@ -184,7 +184,9 @@ public class GUI extends JPanel implements ActionListener {
 
         //Perform the measurement and display the entropy
         double entropy = board.eMeasure(coordinate);
-        buttons[coordinate[0]][coordinate[1]].setText(Double.toString(entropy));
+        String text = Double.toString(entropy);
+        int cutoff = Math.min(text.length(), 5);
+        buttons[coordinate[0]][coordinate[1]].setText(text.substring(0, cutoff));
         prevEntropy.add(coordinate);
     }
 
@@ -201,17 +203,23 @@ public class GUI extends JPanel implements ActionListener {
      */
     private void updateBoard() {
         double toDisplay;
+        String text;
+        int cutoff;
 
         //Update entropy labels
         for (int[] p : prevEntropy) {
             toDisplay = board.eMeasure(p);
-            buttons[p[0]][p[1]].setText(Double.toString(toDisplay));
+            text = Double.toString(toDisplay);
+            cutoff = Math.min(text.length(), 5);
+            buttons[p[0]][p[1]].setText(text.substring(0, cutoff));
         }
 
         //Update adjacent mine labels
         for (int[] c : previous) {
             toDisplay = board.countMines(c);
-            buttons[c[0]][c[1]].setText(Double.toString(toDisplay));
+            text = Double.toString(toDisplay);
+            cutoff = Math.min(text.length(), 5);
+            buttons[c[0]][c[1]].setText(text.substring(0, cutoff));
         }
     }
 
